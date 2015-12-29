@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WS2812Controller", "WS2812Controller\WS2812Controller.csproj", "{0E180632-0C61-4AFA-A4EC-19E15D71B5D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeoPixelLib", "NeoPixelLib\NeoPixelLib.csproj", "{66E367B7-1339-4D46-9A5E-2EF5E995C404}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E180632-0C61-4AFA-A4EC-19E15D71B5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E180632-0C61-4AFA-A4EC-19E15D71B5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E180632-0C61-4AFA-A4EC-19E15D71B5D6}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0E180632-0C61-4AFA-A4EC-19E15D71B5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E180632-0C61-4AFA-A4EC-19E15D71B5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E180632-0C61-4AFA-A4EC-19E15D71B5D6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{66E367B7-1339-4D46-9A5E-2EF5E995C404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66E367B7-1339-4D46-9A5E-2EF5E995C404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66E367B7-1339-4D46-9A5E-2EF5E995C404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66E367B7-1339-4D46-9A5E-2EF5E995C404}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
