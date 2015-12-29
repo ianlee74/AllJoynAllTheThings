@@ -11,7 +11,7 @@ namespace WS2812Controller
     public partial class Program
     {
         private static WS2811Led _ws2812Strip;
-        private const int _numberOfLeds = 5; // Modify here the led number of your strip !
+        private const int _numberOfLeds = 115; // Modify here the led number of your strip !
         private byte[] _color = new byte[3] {0, 0, 0};
         private uint _colorCode = 0;
 
