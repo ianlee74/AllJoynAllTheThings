@@ -43,7 +43,7 @@ namespace LightBulbProducer
             this.Setup();
 
             timer = new DispatcherTimer();
-            timer.Interval = TimeSpan.FromMilliseconds(2000);
+            timer.Interval = TimeSpan.FromMilliseconds(3000);
             timer.Tick += OnTick;
             timer.Start();
         }
