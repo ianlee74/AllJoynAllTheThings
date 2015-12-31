@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<node name="/com/ianlee/FezHat" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:noNamespaceSchemaLocation="http://www.allseenalliance.org/schemas/introspect.xsd">
+  <interface name="com.ianlee.FezHat">
+    <method name="SetRedLedState">
+      <arg name="on" type="b" direction="in"/>
+    </method>
+    <method name="GetRedLedState">
+      <arg name="state" type="b" direction="out"/>
+    </method>
+    <method name="SetRgbLedD2Color">
+      <arg name="on" type="b" direction="in"/>
+      <arg name="red" type="y" direction="in"/>
+      <arg name="green" type="y" direction="in"/>
+      <arg name="blue" type="y" direction="in"/>
+    </method>
+    <method name="SetRgbLedD3Color">
+      <arg name="on" type="b" direction="in"/>
+      <arg name="red" type="y" direction="in"/>
+      <arg name="green" type="y" direction="in"/>
+      <arg name="blue" type="y" direction="in"/>
+    </method>
+    <method name="GetLightSensorValue">
+      <arg name="value" type="d" direction="out"/>
+    </method>
+    <method name="GetTemperatureSensorValue">
+      <arg name="valueC" type="d" direction="out"/>
+      <arg name="valueF" type="d" direction="out"/>
+    </method>
+    <signal name="ButtonDio18Pressed" sessless="true">
+      <description>Emitted when the DIO18 button has been pressed.</description>
+    </signal>
+    <signal name="ButtonDio22Pressed" sessless="true">
+      <description>Emitted when the DIO22 button has been pressed.</description>
+    </signal>
+  </interface>
+</node>
