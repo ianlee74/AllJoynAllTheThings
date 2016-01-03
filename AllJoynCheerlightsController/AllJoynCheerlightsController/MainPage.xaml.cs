@@ -69,7 +69,9 @@ namespace AllJoynCheerlightsController
         {
             var color = _cheerlights.Colors[_currentColor];
             await consumer.SetHueAsync(color.Hue);
-            await consumer.SetSaturationAsync(color.Saturation);            
+            await Task.Delay(100);
+            await consumer.SetSaturationAsync(color.Saturation);
+            await Task.Delay(100);
         }
 
         private async void Timer_Tick(object sender, object e)
