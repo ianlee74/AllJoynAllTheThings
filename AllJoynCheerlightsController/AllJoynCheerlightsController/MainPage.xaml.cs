@@ -68,8 +68,8 @@ namespace AllJoynCheerlightsController
         private async Task SetLampColorAsync(LampStateConsumer consumer)
         {
             var color = _cheerlights.Colors[_currentColor];
-            var task = Task.Run(async () => await consumer.SetHueAsync(color.Hue));
-            await task.ContinueWith(async antecedent => await consumer.SetSaturationAsync(color.Saturation));            
+            await consumer.SetHueAsync(color.Hue);
+            await consumer.SetSaturationAsync(color.Saturation);            
         }
 
         private async void Timer_Tick(object sender, object e)
