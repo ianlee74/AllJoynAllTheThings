@@ -7,8 +7,53 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ToggleSwitch x:Name="LampStateToggleSwitch" Header="Lamp State" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Toggled="LampStateToggleSwitch_Toggled"/>
+    <Grid Padding="10,0,10,0" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="65"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" FontSize="20" Text ="AllJoyn Lamp Consumer Sample"/>
+        <TextBlock Grid.Row="1" FontSize="16" Text="Power" Margin="0,22,0,43" Grid.RowSpan="2"/>
+        <ToggleSwitch Grid.Row="1" 
+                      x:Name="LampStateToggleSwitch" 
+                      OnContent="On"
+                      OffContent="Off"
+                      Margin="60,13,0,12"
+                      Toggled="LampStateToggleSwitch_Toggled" />
+        <TextBlock Grid.Row="2" FontSize="16" Text="Brightness"/>
+        <Slider Grid.Row="2"
+                x:Name="Brightness"
+                HorizontalAlignment="Left"
+                Margin="0,20,0,0"
+                Width="350"
+                ValueChanged="Brightness_OnValueChanged"
+                VerticalAlignment="Top"
+                Maximum="100"/>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Button x:Name="TurnRed"
+                Background="Red"
+                Width="100"
+                Height="25"
+                Margin="5,0,5,0"
+                Click="TurnRed_OnClick"/>
+            <Button x:Name="TurnGreen"
+                Background="Green"
+                Width="100"
+                Height="25"
+                Margin="5,0,5,0"
+                Click="TurnGreen_OnClick"/>
+            <Button x:Name="TurnBlue"
+                Background="Blue"
+                Width="100"
+                Height="25"
+                Margin="5,0,5,0"
+                Click="TurnBlue_OnClick"/>
 
+        </StackPanel>
     </Grid>
 </Page>

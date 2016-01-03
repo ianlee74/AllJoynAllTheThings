@@ -26,14 +26,15 @@ namespace LifxBulbConsumer
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private LampStateConsumer _lampStateConsumer;
-        private AllJoynBusAttachment _lampStateBusAttachment;
+        private readonly List<LampStateConsumer> _lampStateConsumers;
+        private readonly AllJoynBusAttachment _lampStateBusAttachment;
         private bool _lampState;
 
         public MainPage()
         {
             this.InitializeComponent();
 
+            _lampStateConsumers = new List<LampStateConsumer>();
             _lampStateBusAttachment = new AllJoynBusAttachment();
             _lampState = false;
             StartWatchers();
@@ -50,48 +51,68 @@ namespace LifxBulbConsumer
         {
             var joinResult = await LampStateConsumer.JoinSessionAsync(args, sender);
 
-            if (joinResult.Status == AllJoynStatus.Ok)
-            {
-                // success
-                _lampStateConsumer = joinResult.Consumer;
-                _lampStateConsumer.Signals.LampStateChangedReceived += Signals_LampStateChangedReceived;
+            if (joinResult.Status != AllJoynStatus.Ok) return;
+            
+            // success
+            var consumer = (LampStateConsumer) joinResult.Consumer;
+            consumer.Signals.LampStateChangedReceived += Signals_LampStateChangedReceived;
+            _lampStateConsumers.Add(consumer);
 
-                await SetLampStateAsync();
+            await SetLampStateAsync();
 
-                System.Diagnostics.Debug.WriteLine("LampStateConsumer successfully added.");
-            }
-            else
-            {
-                // do nothing
-            }
+            System.Diagnostics.Debug.WriteLine("LampStateConsumer successfully added.");
         }
 
         private async Task SetLampStateAsync()
         {
-            await _lampStateConsumer.SetOnOffAsync(_lampState);
+            foreach (var lampStateConsumer in _lampStateConsumers)
+            {
+                await lampStateConsumer.SetOnOffAsync(_lampState);
+            }            
         }
 
         private void Signals_LampStateChangedReceived(LampStateSignals sender, LampStateLampStateChangedReceivedEventArgs args)
         {
             System.Diagnostics.Debug.WriteLine("Lamp state signal received.");
-
-            // Show UI Toast
-            var toastTemplate = ToastTemplateType.ToastText02;
-            var toastXml = ToastNotificationManager.GetTemplateContent(toastTemplate);
-
-            // Populate UI Toast
-            var toastTextElements = toastXml.GetElementsByTagName("text");
-            toastTextElements[0].AppendChild(toastXml.CreateTextNode("Lamp State Changed"));
-
-            // Create and Send UI Toast
-            var toast = new ToastNotification(toastXml);
-            ToastNotificationManager.CreateToastNotifier().Show(toast);
         }
 
         private async void LampStateToggleSwitch_Toggled(object sender, RoutedEventArgs e)
         {
             _lampState = LampStateToggleSwitch.IsOn;
             await SetLampStateAsync();
+        }
+
+        private async void Brightness_OnValueChanged(object sender, RangeBaseValueChangedEventArgs e)
+        {
+            var value = Convert.ToUInt32(uint.MaxValue*(e.NewValue/100.0));
+
+            foreach (var lamp in _lampStateConsumers)
+            {
+                await lamp.SetBrightnessAsync(value);
+            }
+        }
+
+        private async void TurnRed_OnClick(object sender, RoutedEventArgs e)
+        {
+            await SetLampsColorAsync(0x0000000000);
+        }
+
+        private async void TurnGreen_OnClick(object sender, RoutedEventArgs e)
+        {
+            await SetLampsColorAsync(0x55555555);
+        }
+
+        private async void TurnBlue_OnClick(object sender, RoutedEventArgs e)
+        {
+           await SetLampsColorAsync(0xAAAAAAAA);
+        }
+
+        private async Task SetLampsColorAsync(uint hue)
+        {
+            foreach (var lamp in _lampStateConsumers)
+            {
+                await lamp.SetHueAsync(hue);
+            }
         }
     }
 }
