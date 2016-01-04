@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Devices.AllJoyn;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -14,6 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using GHIElectronics.UWP.GadgeteerCore.NativeInterfaces;
+using org.allseen.LSF.LampState;
 using GT = GHIElectronics.UWP.GadgeteerCore;
 using GTMB = GHIElectronics.UWP.Gadgeteer.Mainboards;
 using GTMO = GHIElectronics.UWP.Gadgeteer.Modules;
@@ -27,25 +29,31 @@ namespace LightBulbProducer
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private GTMB.FEZCream mainboard;
-        private GTMO.Extender extender;
-        private DispatcherTimer timer;
+        private GTMB.FEZCream _mainboard;
+        private GTMO.Extender _extender;
 
         private GT.SocketInterfaces.DigitalIO _colorPin0;
         private GT.SocketInterfaces.DigitalIO _colorPin1;
         private GT.SocketInterfaces.DigitalIO _colorPin2;
         private GT.SocketInterfaces.DigitalIO _colorPin3;
 
-
+        private AllJoynBusAttachment _busAttachment;
+        private LampStateProducer
         public MainPage()
         {
             this.InitializeComponent();
-            this.Setup();
+            Setup();
+            this.Loaded += OnLoaded;
 
-            timer = new DispatcherTimer();
+            var timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(3000);
             timer.Tick += OnTick;
             timer.Start();
+        }
+
+        private void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void OnTick(object sender, object e)
@@ -75,14 +83,13 @@ namespace LightBulbProducer
 
         private async void Setup()
         {
-            mainboard = await GT.Module.CreateAsync<GTMB.FEZCream>();
-            extender = await GT.Module.CreateAsync<GTMO.Extender>(mainboard.GetProvidedSocket(8));
+            _mainboard = await GT.Module.CreateAsync<GTMB.FEZCream>();
+            _extender = await GT.Module.CreateAsync<GTMO.Extender>(_mainboard.GetProvidedSocket(8));
 
-            _colorPin0 = await extender.CreateDigitalIOAsync(GT.SocketPinNumber.Three, false);
-            _colorPin1 = await extender.CreateDigitalIOAsync(GT.SocketPinNumber.Four, false);
-            _colorPin2 = await extender.CreateDigitalIOAsync(GT.SocketPinNumber.Five, false);
-            _colorPin3 = await extender.CreateDigitalIOAsync(GT.SocketPinNumber.Six, false);
-
+            _colorPin0 = await _extender.CreateDigitalIOAsync(GT.SocketPinNumber.Three, false);
+            _colorPin1 = await _extender.CreateDigitalIOAsync(GT.SocketPinNumber.Four, false);
+            _colorPin2 = await _extender.CreateDigitalIOAsync(GT.SocketPinNumber.Five, false);
+            _colorPin3 = await _extender.CreateDigitalIOAsync(GT.SocketPinNumber.Six, false);
         }
     }
 }
