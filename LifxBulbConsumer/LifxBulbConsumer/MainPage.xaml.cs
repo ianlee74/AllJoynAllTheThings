@@ -1,20 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using Windows.Devices.AllJoyn;
-using Windows.UI.Notifications;
 using org.allseen.LSF.LampState;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -27,7 +17,7 @@ namespace LifxBulbConsumer
     public sealed partial class MainPage : Page
     {
         private readonly List<LampStateConsumer> _lampStateConsumers;
-        private readonly AllJoynBusAttachment _lampStateBusAttachment;
+        private readonly AllJoynBusAttachment _allJoynBusAttachment;
         private bool _lampState;
 
         public MainPage()
@@ -35,14 +25,14 @@ namespace LifxBulbConsumer
             this.InitializeComponent();
 
             _lampStateConsumers = new List<LampStateConsumer>();
-            _lampStateBusAttachment = new AllJoynBusAttachment();
+            _allJoynBusAttachment = new AllJoynBusAttachment();
             _lampState = false;
             StartWatchers();
         }
 
         private void StartWatchers()
         {
-            var lampStateWatcher = new LampStateWatcher(_lampStateBusAttachment);
+            var lampStateWatcher = new LampStateWatcher(_allJoynBusAttachment);
             lampStateWatcher.Added += LampStateWatcher_Added;
             lampStateWatcher.Start();
         }
