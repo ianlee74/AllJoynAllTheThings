@@ -113,6 +113,8 @@ namespace LedStripProducer
             _colorPin3 = await _extender.CreateDigitalIOAsync(GT.SocketPinNumber.Six, false);
         }
 
+        #region ILampStateService Implementation
+
         public IAsyncOperation<LampStateTransitionLampStateResult> TransitionLampStateAsync(AllJoynMessageInfo info, ulong interfaceMemberTimestamp,
             IReadOnlyDictionary<string, object> interfaceMemberNewState, uint interfaceMemberTransitionPeriod)
         {
@@ -231,5 +233,8 @@ namespace LedStripProducer
         {
             return (Task.Run(() => LampStateSetBrightnessResult.CreateSuccessResult()).AsAsyncOperation());
         }
+
+        #endregion
+
     }
 }
