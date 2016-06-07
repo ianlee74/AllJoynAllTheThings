@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{768B2BE6-0EF0-4F0D-AE73-16B1D6A4852B}</ProjectGuid>
+    <ProjectGuid>{A9BD4C22-889C-4818-B404-2A1CB7722381}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LifxBulbConsumer</RootNamespace>
     <AssemblyName>LifxBulbConsumer</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -128,8 +128,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\org.allseen.LSF.LampState\org.allseen.LSF.LampState.vcxproj">
-      <Project>{D2BDC4B9-E9C1-44D1-819A-CFCEAEACFF09}</Project>
+    <ProjectReference Include="org.allseen.LSF.LampState\org.allseen.LSF.LampState.vcxproj">
+      <Project>{6677CD70-3F0A-408F-BC34-EF0CFDC046CC}</Project>
       <Name>org.allseen.LSF.LampState</Name>
     </ProjectReference>
   </ItemGroup>

@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{EC7253F8-3B96-45AE-B2DA-58F361AE2EB8}</ProjectGuid>
+    <ProjectGuid>{1B9847FA-D4C0-4D15-A1FE-2F76EA62DBA5}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LedStripProducer</RootNamespace>
     <AssemblyName>LedStripProducer</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -128,8 +128,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\org.allseen.LSF.LampState\org.allseen.LSF.LampState.vcxproj">
-      <Project>{71427801-FF48-4A2B-959F-3E5D52C24120}</Project>
+    <ProjectReference Include="org.allseen.LSF.LampState\org.allseen.LSF.LampState.vcxproj">
+      <Project>{DAD74163-B270-42E3-8561-C9C94903727B}</Project>
       <Name>org.allseen.LSF.LampState</Name>
     </ProjectReference>
   </ItemGroup>

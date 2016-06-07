@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="74b320ec-fc34-493c-ae5c-a9e6280b27ee"
-    Publisher="CN=Ian"
+    Name="c62367bd-597d-4de1-b192-8a90ca59b954"
+    Publisher="CN=ilee"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="74b320ec-fc34-493c-ae5c-a9e6280b27ee" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="c62367bd-597d-4de1-b192-8a90ca59b954" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>LifxBulbConsumer</DisplayName>
-    <PublisherDisplayName>Ian</PublisherDisplayName>
+    <PublisherDisplayName>ilee</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resources">
+      <UniqueIdentifier>c0da6a1f-a60f-44af-94d7-c93b832af83f</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tga;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="AllJoynBusObjectManager.cpp" />
+    <ClCompile Include="AllJoynHelpers.cpp" />
+    <ClCompile Include="FezHatConsumer.cpp" />
+    <ClCompile Include="FezHatProducer.cpp" />
+    <ClCompile Include="FezHatServiceEventAdapter.cpp" />
+    <ClCompile Include="FezHatServiceEventArgs.cpp" />
+    <ClCompile Include="FezHatSignals.cpp" />
+    <ClCompile Include="FezHatWatcher.cpp" />
+    <ClCompile Include="TypeConversionHelpers.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="AllJoynBusObjectManager.h" />
+    <ClInclude Include="AllJoynHelpers.h" />
+    <ClInclude Include="FezHatConsumer.h" />
+    <ClInclude Include="FezHatEventArgs.h" />
+    <ClInclude Include="FezHatMethodResults.h" />
+    <ClInclude Include="FezHatProducer.h" />
+    <ClInclude Include="FezHatServiceEventAdapter.h" />
+    <ClInclude Include="FezHatServiceEventArgs.h" />
+    <ClInclude Include="FezHatSignals.h" />
+    <ClInclude Include="FezHatStructures.h" />
+    <ClInclude Include="FezHatWatcher.h" />
+    <ClInclude Include="IFezHatService.h" />
+    <ClInclude Include="TypeConversionHelpers.h" />
+  </ItemGroup>
+</Project>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="82aed7d0-51f0-4675-ae0a-cb2f59cd4665" Publisher="CN=ilee" Version="1.0.0.0" />
-  <mp:PhoneIdentity PhoneProductId="82aed7d0-51f0-4675-ae0a-cb2f59cd4665" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Identity Name="999bebf5-231a-479e-9bd4-31d8fae628e2" Publisher="CN=ilee" Version="1.0.0.0" />
+  <mp:PhoneIdentity PhoneProductId="999bebf5-231a-479e-9bd4-31d8fae628e2" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>AllJoynCheerlightsController</DisplayName>
     <PublisherDisplayName>ilee</PublisherDisplayName>

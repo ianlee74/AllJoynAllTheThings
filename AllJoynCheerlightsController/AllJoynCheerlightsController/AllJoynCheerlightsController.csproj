@@ -4,14 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{FDFC0B1C-64FC-413A-BFE6-5B14604AFD8D}</ProjectGuid>
+    <ProjectGuid>{03E8F8BA-7AE9-4C00-8E00-96D8C39B7ED5}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AllJoynCheerlightsController</RootNamespace>
     <AssemblyName>AllJoynCheerlightsController</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
@@ -130,8 +130,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\org.allseen.LSF.LampState\org.allseen.LSF.LampState.vcxproj">
-      <Project>{565C1105-8CE8-4B70-85CA-D229DCA97C05}</Project>
+    <ProjectReference Include="org.allseen.LSF.LampState\org.allseen.LSF.LampState.vcxproj">
+      <Project>{BD9B64D3-8792-47A9-8FAE-CADE89276F97}</Project>
       <Name>org.allseen.LSF.LampState</Name>
     </ProjectReference>
   </ItemGroup>

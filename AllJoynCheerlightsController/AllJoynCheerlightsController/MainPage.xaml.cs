@@ -58,7 +58,7 @@ namespace AllJoynCheerlightsController
             var joinResult = await LampStateConsumer.JoinSessionAsync(args, sender);
 
             if (joinResult.Status != AllJoynStatus.Ok) return;
-            
+
             // success
             _lampStateConsumers.Add(joinResult.Consumer);
             await SetLampColorAsync(joinResult.Consumer);

@@ -21,7 +21,8 @@
         <ToggleSwitch Grid.Row="1" 
                       x:Name="LampStateToggleSwitch" 
                       OnContent="On"
-                      OffContent="Off" Toggled="LampStateToggleSwitch_Toggled" />
+                      OffContent="Off" 
+                      Toggled="LampStateToggleSwitch_Toggled" />
         </StackPanel>
     </Grid>
 </Page>

@@ -42,13 +42,17 @@ namespace LifxBulbConsumer
             var joinResult = await LampStateConsumer.JoinSessionAsync(args, sender);
 
             if (joinResult.Status != AllJoynStatus.Ok) return;
-            
+
             // success
-            var consumer = (LampStateConsumer) joinResult.Consumer;
+            var consumer = (LampStateConsumer)joinResult.Consumer;
             consumer.Signals.LampStateChangedReceived += Signals_LampStateChangedReceived;
             _lampStateConsumers.Add(consumer);
 
-            await SetLampStateAsync();
+            try
+            {
+                await SetLampStateAsync();
+            }
+            catch { } // TODO: For some reason this sometimes blows up during startup. Investigate better way to handle.
 
             System.Diagnostics.Debug.WriteLine("LampStateConsumer successfully added.");
         }
@@ -58,7 +62,7 @@ namespace LifxBulbConsumer
             foreach (var lampStateConsumer in _lampStateConsumers)
             {
                 await lampStateConsumer.SetOnOffAsync(_lampState);
-            }            
+            }
         }
 
         private void Signals_LampStateChangedReceived(LampStateSignals sender, LampStateLampStateChangedReceivedEventArgs args)
@@ -74,7 +78,7 @@ namespace LifxBulbConsumer
 
         private async void Brightness_OnValueChanged(object sender, RangeBaseValueChangedEventArgs e)
         {
-            var value = Convert.ToUInt32(uint.MaxValue*(e.NewValue/100.0));
+            var value = Convert.ToUInt32(uint.MaxValue * (e.NewValue / 100.0));
 
             foreach (var lamp in _lampStateConsumers)
             {
@@ -94,7 +98,7 @@ namespace LifxBulbConsumer
 
         private async void TurnBlue_OnClick(object sender, RoutedEventArgs e)
         {
-           await SetLampsColorAsync(0xAAAAAAAA);
+            await SetLampsColorAsync(0xAAAAAAAA);
         }
 
         private async Task SetLampsColorAsync(uint hue)

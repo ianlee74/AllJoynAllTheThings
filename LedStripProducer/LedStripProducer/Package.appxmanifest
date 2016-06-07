@@ -7,11 +7,11 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="a1dc83b8-da38-428f-bdc9-f64fe41bee3b"
+    Name="d828ee3a-6dc3-4b3e-9f8a-c9ddf8fe09cc"
     Publisher="CN=ilee"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="a1dc83b8-da38-428f-bdc9-f64fe41bee3b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="d828ee3a-6dc3-4b3e-9f8a-c9ddf8fe09cc" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>LedStripProducer</DisplayName>
